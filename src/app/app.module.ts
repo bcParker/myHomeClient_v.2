@@ -11,11 +11,21 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
+import { ProfileCardComponent } from './profile-card/profile-card.component';
+import { WeatherCardComponent } from './weather-card/weather-card.component';
+import { StocksCardComponent } from './stocks-card/stocks-card.component';
+import { TimeCardComponent } from './time-card/time-card.component';
+import { CalendarCardComponent } from './calendar-card/calendar-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    ProfileCardComponent,
+    WeatherCardComponent,
+    StocksCardComponent,
+    TimeCardComponent,
+    CalendarCardComponent
   ],
   imports: [
     BrowserModule,
