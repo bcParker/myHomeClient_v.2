@@ -5,13 +5,20 @@
 			<button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
 				<mat-icon>more_vert</mat-icon>
 			</button>
-			<mat-menu #menu="matMenu" xPosition="before">
-				<button mat-menu-item>Expand</button>
+			<mat-menu #menu="matMenu" xh5osition="before">
+				<button mat-menu-item>Exh5and</button>
 				<button mat-menu-item>Remove</button>
 			</mat-menu>
 		</mat-card-title>
 	</mat-card-header>
 	<mat-card-content class="dashboard-card-content">
-		<div>{{currWeather.weather[0].id}}</div>
+		<div>
+			<h5>Skies: {{currWeather.weather[0].main}}</h5>
+			<h6>{{currWeather.weather[0].description}}</h6>
+			<h5>Current Temp: {{tempRound(currWeather.main.temp)}}°F</h5>
+			<h5>Hi: {{tempRound(currWeather.main.temp_max)}}°F</h5>
+			<h5>Lo: {{tempRound(currWeather.main.temp_min)}}°F</h5>
+			<h5>Humidity: {{currWeather.main.humidity}}%</h5>
+		</div>
 	</mat-card-content>
 </mat-card>
