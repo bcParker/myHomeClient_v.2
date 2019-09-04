@@ -20,11 +20,15 @@ import { WeatherCardComponent } from './weather-card/weather-card.component';
 import { StocksCardComponent } from './stocks-card/stocks-card.component';
 import { TimeCardComponent } from './time-card/time-card.component';
 import { CalendarCardComponent } from './calendar-card/calendar-card.component';
+
 import { StocksService } from './stocks.service';
 import { LoginComponent } from './login/login.component';
 import { DialogBoxComponent } from './dialog-box/dialog-box.component';
 import {StocksTableComponent } from './stocks-table/stocks-table.component';
 
+import { UsersService } from './users.service';
+import { HttpClientModule } from '@angular/common/http';
+import { WeatherService } from './weather.service';
 
 @NgModule({
   declarations: [
@@ -70,6 +74,11 @@ import {StocksTableComponent } from './stocks-table/stocks-table.component';
     DialogBoxComponent
   ],
   providers: [StocksService],
+
+    LayoutModule,
+    HttpClientModule,
+  ],
+  providers: [WeatherService, UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

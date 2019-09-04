@@ -1,11 +1,15 @@
 <div class="grid-container">
-  <h1 class="mat-h1">Adam's Home</h1>
+
+  <h1 class="mat-h1">myHome</h1>
   <mat-grid-list cols="2" rowHeight="350px">
     <mat-grid-tile >
-      <mat-card class="dashboard-card">
+      <app-weather-card></app-weather-card>
+      <!-- <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
-            <h3>Stocks Card</h3>
+
+            {{"User"}}
+
             <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
               <mat-icon>more_vert</mat-icon>
             </button>
@@ -18,7 +22,7 @@
         <mat-card-content class="dashboard-card-content">
           <div></div>
         </mat-card-content>
-      </mat-card>
+      </mat-card> -->
     </mat-grid-tile>
   </mat-grid-list>
 </div>
