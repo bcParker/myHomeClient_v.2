@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
@@ -24,7 +25,8 @@ import { StocksService } from './stocks.service';
 import { LoginComponent } from './login/login.component';
 import { DialogBoxComponent } from './dialog-box/dialog-box.component';
 import {StocksTableComponent } from './stocks-table/stocks-table.component';
-
+import { UsersService } from './users.service';
+import { WeatherService } from './weather.service';
 
 @NgModule({
   declarations: [
@@ -69,7 +71,9 @@ import {StocksTableComponent } from './stocks-table/stocks-table.component';
   entryComponents: [
     DialogBoxComponent
   ],
-  providers: [StocksService],
+
+  providers: [StocksService, WeatherService, UsersService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
