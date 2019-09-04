@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http'
  
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +16,8 @@ import { WeatherCardComponent } from './weather-card/weather-card.component';
 import { StocksCardComponent } from './stocks-card/stocks-card.component';
 import { TimeCardComponent } from './time-card/time-card.component';
 import { CalendarCardComponent } from './calendar-card/calendar-card.component';
+import { UsersService } from './users.service';
+import { HttpClientModule } from '@angular/common/http';
 import { WeatherService } from './weather.service';
 
 @NgModule({
@@ -41,7 +42,7 @@ import { WeatherService } from './weather.service';
     LayoutModule,
     HttpClientModule,
   ],
-  providers: [WeatherService],
+  providers: [WeatherService, UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
