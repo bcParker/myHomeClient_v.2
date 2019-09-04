@@ -1,0 +1,32 @@
+.maindiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth {
+    display: flex;
+    
+}
+ 
+.example-card {
+    width: 30em;
+}
+
+.example-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.example-card {
+    text-align: center;
+}
+
+#toggle {
+    float: right;
+}
+
+.title {
+    text-align: center;
+}
