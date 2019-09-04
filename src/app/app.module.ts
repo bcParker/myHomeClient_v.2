@@ -16,6 +16,9 @@ import { WeatherCardComponent } from './weather-card/weather-card.component';
 import { StocksCardComponent } from './stocks-card/stocks-card.component';
 import { TimeCardComponent } from './time-card/time-card.component';
 import { CalendarCardComponent } from './calendar-card/calendar-card.component';
+import { UsersService } from './users.service';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -36,9 +39,10 @@ import { CalendarCardComponent } from './calendar-card/calendar-card.component';
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
-    LayoutModule
+    LayoutModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
