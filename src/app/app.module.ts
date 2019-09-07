@@ -27,7 +27,6 @@ import { DialogBoxComponent } from './dialog-box/dialog-box.component';
 import {StocksTableComponent } from './stocks-table/stocks-table.component';
 
 import { UsersService } from './users.service';
-import { HttpClientModule } from '@angular/common/http';
 import { WeatherService } from './weather.service';
 
 @NgModule({
@@ -73,12 +72,7 @@ import { WeatherService } from './weather.service';
   entryComponents: [
     DialogBoxComponent
   ],
-  providers: [StocksService],
-
-    LayoutModule,
-    HttpClientModule,
-  ],
-  providers: [WeatherService, UsersService],
+  providers: [WeatherService, UsersService, StocksService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
