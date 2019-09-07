@@ -19,5 +19,8 @@ export class WeatherCardComponent implements OnInit {
     console.log(this.currWeather);
   }
 
+  tempRound(num): number{
+    return Math.floor(((num - 273.15)*9/5+32));
+  }
 
 }

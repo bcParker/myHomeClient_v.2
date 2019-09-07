@@ -1,4 +1,4 @@
-import { Component, Inject, Optional } from '@angular/core';
+import { Component, Inject, Optional, Input } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
  
 export interface UsersData {
@@ -18,6 +18,8 @@ export class DialogBoxComponent {
  
   action:string;
   local_data:any;
+  @Input('symbol') symbol: string = '';
+  @Input('user') user: string = '';
  
   constructor(
     public dialogRef: MatDialogRef<DialogBoxComponent>,
@@ -34,6 +36,19 @@ export class DialogBoxComponent {
  
   closeDialog(){
     this.dialogRef.close({event:'Cancel'});
+  }
+
+  postStock() {
+    event.preventDefault();
+    fetch(`http://localhost:3000/stocks/add`, {
+      method: 'POST',
+      body: JSON.stringify({
+        symbol: this.symbol,
+      }),
+      headers: new Headers({
+        'Content-Type': 'application/json'
+      })
+    }).then(response => response.json())
   }
  
 }

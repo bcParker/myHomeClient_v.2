@@ -9,6 +9,6 @@
   </ng-template>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="doAction()">{{action}}</button>
+  <button mat-button (click)="doAction(); postStock()">{{action}}</button>
   <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
 </div>

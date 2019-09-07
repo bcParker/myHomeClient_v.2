@@ -1,6 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit, Input } from '@angular/core';
 import { MatDialog, MatTable } from '@angular/material';
-import { DialogBoxComponent } from '../dialog-box/dialog-box.component'
+import { DialogBoxComponent } from '../dialog-box/dialog-box.component';
+import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { StocksService } from '../stocks.service';
  
 export interface UsersData {
   company: string;
@@ -20,14 +22,22 @@ const ELEMENT_DATA: UsersData[] = [
   templateUrl: './stocks-table.component.html',
   styleUrls: ['./stocks-table.component.css']
 })
-export class StocksTableComponent {
+export class StocksTableComponent implements OnInit{
   displayedColumns: string[] = ['company', 'symbol', 'latestPrice', 'previousClose', 'change', 'action'];
-  dataSource = ELEMENT_DATA;
+  stocksData = ELEMENT_DATA;
  
   @ViewChild(MatTable,{static:true}) table: MatTable<any>;
+
+  public stockInfo = [];
  
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private stocksService: StocksService, breakpointObserver: BreakpointObserver) {}
  
+  ngOnInit() {
+    
+    return this.stocksService.getStocks().subscribe(data => this.stockInfo = data);
+  console.log(this.stockInfo);
+  }
+
   openDialog(action,obj) {
     obj.action = action;
     const dialogRef = this.dialog.open(DialogBoxComponent, {
@@ -47,7 +57,7 @@ export class StocksTableComponent {
   }
  
   addRowData(row_obj){
-    this.dataSource.push({
+    this.stocksData.push({
       company:row_obj.company,
       symbol:row_obj.symbol,
       latestPrice:row_obj.latestPrice,
@@ -58,7 +68,7 @@ export class StocksTableComponent {
     
   }
   updateRowData(row_obj){
-    this.dataSource = this.dataSource.filter((value,key)=>{
+    this.stocksData = this.stocksData.filter((value,key)=>{
       if(value.company == row_obj.company){
         value.symbol = row_obj.symbol;
       }
@@ -66,7 +76,7 @@ export class StocksTableComponent {
     });
   }
   deleteRowData(row_obj){
-    this.dataSource = this.dataSource.filter((value,key)=>{
+    this.stocksData = this.stocksData.filter((value,key)=>{
       return value.symbol != row_obj.symbol;
     });
   }
