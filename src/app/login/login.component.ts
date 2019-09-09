@@ -50,7 +50,7 @@ export class LoginComponent {
 loginUserData = {};
 createUserData = {};
 
-constructor(private router: Router, private _auth: AuthService) { }
+constructor(private _router: Router, private _auth: AuthService) { }
 
 ngOnInit() {
 
@@ -74,6 +74,7 @@ loginUser(){
       res => {
         console.log(res.sessionToken)
           localStorage.setItem('token', res.sessionToken)
+          this._router.navigate(['home'])
       },
       err => console.log(err)
     )
