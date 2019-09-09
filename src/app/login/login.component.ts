@@ -48,16 +48,16 @@ export class LoginComponent {
   }
 
 loginUserData = {};
-signInUserData = {};
+createUserData = {};
 
-constructor(private router: Router, private _auth: AuthService) { }
+constructor(private _router: Router, private _auth: AuthService) { }
 
 ngOnInit() {
 
 }
 
-signInUser() {
-  this._auth.signInUser(this.signInUserData)
+createUser() {
+  this._auth.createUser(this.createUserData)
     .subscribe(
       res => {
         console.log(res),
@@ -65,7 +65,6 @@ signInUser() {
       },
       err => console.log(err),
     )
-    console.log('logged in');
 }
 
 loginUser(){
@@ -73,35 +72,12 @@ loginUser(){
   this._auth.loginUser(this.loginUserData)
     .subscribe(
       res => {
-        console.log(res),
+        console.log(res.sessionToken)
           localStorage.setItem('token', res.sessionToken)
+          this._router.navigate(['home'])
       },
       err => console.log(err)
     )
 }
-// submit(event) {
-//   event.preventDefault();
-//   fetch(`http://localhost:3000/user/signin`, {
-//     method: 'POST',
-//     body: JSON.stringify({
-//       email: this.email,
-//       password: this.password
-//     }),
-//     headers: new Headers({
-//       'Content-Type': 'application/json'
-//     })
-//   }).then(response => response.json())
-//     .then(json => {
-//       this.storeSession(json.loggedInUser, json.token)
-//       this.router.navigate(["home"]);
-//     })
-//     .catch(err => alert("Invalid credentials"))
-// }
 
-// storeSession({ role }, token) {
-//   sessionStorage.setItem('role', role)
-//   sessionStorage.setItem('token', token)
-// }
 }
-
-

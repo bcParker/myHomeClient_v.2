@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,6 +28,7 @@ import {StocksTableComponent } from './stocks-table/stocks-table.component';
 
 import { UsersService } from './users.service';
 import { WeatherService } from './weather.service';
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
@@ -68,11 +69,15 @@ import { WeatherService } from './weather.service';
   ],
   exports: [
   ],
-
   entryComponents: [
     DialogBoxComponent
   ],
-  providers: [WeatherService, UsersService, StocksService],
+  providers: [
+    WeatherService, 
+    UsersService, 
+    StocksService, 
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
