@@ -1,5 +1,29 @@
-<p>profile-card works!</p>
-<p>{{user.email}}</p>
-<p>{{user.name}}</p>
-<p>{{user.password}}</p>
+<!-- <p>profile-card works!</p>
+<p>Your email:<span style="color: blue"> {{user.email}}</span></p>
+<p>Name: {{user.name}}</p>
+<p>Password: {{user.password}}</p> -->
 
+<mat-card class="dashboard-card">
+	<mat-card-header>
+		<mat-card-title class="titlename">
+			{{user.name}}
+			<button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+				<mat-icon>more_vert</mat-icon>
+			</button>
+			<mat-menu #menu="matMenu" xh5osition="before">
+				<button mat-menu-item>Expand</button>
+				<button mat-menu-item>Remove</button>
+			</mat-menu>
+		</mat-card-title>
+	</mat-card-header>
+	<mat-card-content class="dashboard-card-content">
+        <div class="pic-div">
+            <img id="profile-pic" src={{user.avatar}} alt="Smiley face" height="100" width="100">
+        </div>
+		<div class="other-div">
+            <p>Name: <span style="font-weight: bold">{{user.name}}</span><button style="margin-left: 55px;" mat-button  mat-flat-button color="primary">Edit</button></p>
+            <P>Email:<span style="color: blue"> {{user.email}}</span><button style="margin-left: 55px;" mat-button mat-flat-button color="primary">Edit</button></P>
+            <p>Password: <span style="font-weight: bold"> {{user.password}}</span><button style="margin-left: 5px;" mat-button mat-flat-button color="primary">Edit</button></p>
+		</div>
+	</mat-card-content>
+</mat-card>

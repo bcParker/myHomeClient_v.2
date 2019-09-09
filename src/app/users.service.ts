@@ -11,7 +11,11 @@ import { Users } from './users';
 })
 export class UsersService {
 
-  userUrl: string = 'http://localhost:3000/user/10';
+  userUrl: string = 'http://localhost:3000/user/11';
+
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
   constructor(
     private http: HttpClient,
@@ -19,5 +23,9 @@ export class UsersService {
 
   getUsers(): Observable<Users[]>{
     return this.http.get<Users[]>(this.userUrl);
+  }
+  
+  updateUser(users: Users): Observable<any>{
+    return this.http.put(this.userUrl, users, this.httpOptions);
   }
 }
