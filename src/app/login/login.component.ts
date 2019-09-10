@@ -8,6 +8,7 @@ import {
   animate,
   transition
 } from '@angular/animations';
+import { AuthService } from '../auth.service';
 
 
 @Component({
@@ -46,31 +47,61 @@ export class LoginComponent {
     return this.state == 'signup' ? 'show' : 'hide';
   }
 
-constructor(private router: Router) { }
+loginUserData = {};
+signInUserData = {};
 
-submit(event) {
-  event.preventDefault();
-  fetch(`http://localhost:3000/user/signin`, {
-    method: 'POST',
-    body: JSON.stringify({
-      email: this.email,
-      password: this.password
-    }),
-    headers: new Headers({
-      'Content-Type': 'application/json'
-    })
-  }).then(response => response.json())
-    .then(json => {
-      this.storeSession(json.loggedInUser, json.token)
-      this.router.navigate(["home"]);
-    })
-    .catch(err => alert("Invalid credentials"))
+constructor(private router: Router, private _auth: AuthService) { }
+
+ngOnInit() {
+
 }
 
-storeSession({ role }, token) {
-  sessionStorage.setItem('role', role)
-  sessionStorage.setItem('token', token)
+signInUser() {
+  this._auth.signInUser(this.signInUserData)
+    .subscribe(
+      res => {
+        console.log(res),
+        localStorage.setItem('token', res.sessionToken)
+      },
+      err => console.log(err),
+    )
+    console.log('logged in');
 }
+
+loginUser(){
+  console.log(this.loginUserData);
+  this._auth.loginUser(this.loginUserData)
+    .subscribe(
+      res => {
+        console.log(res),
+          localStorage.setItem('token', res.sessionToken)
+      },
+      err => console.log(err)
+    )
+}
+// submit(event) {
+//   event.preventDefault();
+//   fetch(`http://localhost:3000/user/signin`, {
+//     method: 'POST',
+//     body: JSON.stringify({
+//       email: this.email,
+//       password: this.password
+//     }),
+//     headers: new Headers({
+//       'Content-Type': 'application/json'
+//     })
+//   }).then(response => response.json())
+//     .then(json => {
+//       this.storeSession(json.loggedInUser, json.token)
+//       this.router.navigate(["home"]);
+//     })
+//     .catch(err => alert("Invalid credentials"))
+// }
+
+// storeSession({ role }, token) {
+//   sessionStorage.setItem('role', role)
+//   sessionStorage.setItem('token', token)
+// }
 }
 
 

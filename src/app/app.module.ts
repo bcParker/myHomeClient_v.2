@@ -17,7 +17,6 @@ import { FormsModule } from '@angular/forms';
 import { LayoutModule } from '@angular/cdk/layout';
 import { ProfileCardComponent } from './profile-card/profile-card.component';
 import { WeatherCardComponent } from './weather-card/weather-card.component';
-import { StocksCardComponent } from './stocks-card/stocks-card.component';
 import { TimeCardComponent } from './time-card/time-card.component';
 import { CalendarCardComponent } from './calendar-card/calendar-card.component';
 import { StocksService } from './stocks.service';
@@ -33,7 +32,6 @@ import { WeatherService } from './weather.service';
     HomeComponent,
     ProfileCardComponent,
     WeatherCardComponent,
-    StocksCardComponent,
     TimeCardComponent,
     CalendarCardComponent,
     LoginComponent,
@@ -70,9 +68,7 @@ import { WeatherService } from './weather.service';
   entryComponents: [
     DialogBoxComponent
   ],
-
-  providers: [StocksService, WeatherService, UsersService],
-
+  providers: [WeatherService, UsersService, StocksService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

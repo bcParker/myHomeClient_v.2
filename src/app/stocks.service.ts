@@ -16,4 +16,18 @@ export class StocksService {
   getStocks(): Observable<SelectedStocks[]>{
     return this.http.get<SelectedStocks[]>(this.iexURL)
   }
+
+  // getAllSTocks() {
+  // fetch(`http://localhost:3000/stocks/add`, {
+  //       method: 'POST',
+  //       body: JSON.stringify({
+  //         symbol: this.local_data.symbol,
+  //       }),
+
+  //       headers: new Headers({
+  //         'Content-Type': 'application/json',
+  //         "Authorization": localStorage.getItem('token'),
+  //       })
+  //     }).then(response => response.json())
+  //   }
 }

@@ -10,15 +10,14 @@
                         <tr>
                             <td>
                                 <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="email" class="email" name="email" required>
+                                    <input [(ngModel)]="loginUserData.email" matInput placeholder="email" class="email" name="email" required>
                                 </mat-form-field>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="password" type="password" class="password"
-                                        name="password" required>
+                                    <input [(ngModel)]="loginUserData.password" matInput placeholder="password" type="password" class="password" name="password" required>
                                 </mat-form-field>
                             </td>
                         </tr>
@@ -27,7 +26,7 @@
                 <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
             </mat-card-content>
             <mat-card-actions>
-                <button mat-raised-button (click)="submit($event)" type="submit" color="primary">Login</button>
+                <button mat-raised-button (click)="loginUser()" type="button" color="primary">Login</button>
             </mat-card-actions>
         </div>
         <div class="auth" [@formState]="signupState">
@@ -40,14 +39,14 @@
                         <tr>
                             <td>
                                 <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Username" class="Username" name="Username" required>
+                                    <input [(ngModel)]="loginUserData.email" matInput placeholder="Email" class="Email" name="Email" required>
                                 </mat-form-field>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Password" type="password" class="password"
+                                    <input [(ngModel)]="loginUserData.password" matInput placeholder="Password" type="password" class="password"
                                         name="password" required>
                                 </mat-form-field>
                             </td>
@@ -57,7 +56,7 @@
                 <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
             </mat-card-content>
             <mat-card-actions>
-                <button mat-raised-button (click)="submit()" type="submit" color="primary">Submit</button>
+                <button mat-raised-button (click)="signInUser()" type="submit" color="primary">Submit</button>
             </mat-card-actions>
         </div>
         <button mat-stroked-button id="toggle" (click)="loginToggle()" color="primary">Login/Register</button>

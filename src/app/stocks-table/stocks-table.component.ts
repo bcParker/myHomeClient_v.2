@@ -36,6 +36,12 @@ export class StocksTableComponent implements OnInit{
     
     return this.stocksService.getStocks().subscribe(data => this.stockInfo = data);
   console.log(this.stockInfo);
+
+  // this.stocksService.getAllData('currencies').subscribe(
+  //   data => this.currencydata = data,
+  //   err => console.log(err),
+  //   () => console.log("completed")
+  //   ); 
   }
 
   openDialog(action,obj) {
