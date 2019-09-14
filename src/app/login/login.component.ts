@@ -68,11 +68,11 @@ createUser() {
 }
 
 loginUser(){
-  console.log(this.loginUserData);
+  // console.log(this.loginUserData);
   this._auth.loginUser(this.loginUserData)
     .subscribe(
       res => {
-        console.log(res.sessionToken)
+        console.log(res)
           localStorage.setItem('token', res.sessionToken)
           this._router.navigate(['home'])
       },
