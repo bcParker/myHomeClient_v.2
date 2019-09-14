@@ -3,6 +3,7 @@ import { Observable, of, observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Users } from './users';
+import { APIURL } from '../environments/environment.prod';
 
 
 
@@ -11,7 +12,7 @@ import { Users } from './users';
 })
 export class UsersService {
 
-  userUrl: string = 'http://localhost:3000/user/10';
+  userUrl: string = `${APIURL}/user/10`;
 
   constructor(
     private http: HttpClient,
