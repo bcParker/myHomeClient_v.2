@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CurrentWeather } from './currentWeather.model';
+import { APIURL } from '../environments/environment.prod';
 
 
 @Injectable({
@@ -13,7 +14,7 @@ export class WeatherService {
 
   private cWeatherURL: string = `http://api.openweathermap.org/data/2.5/weather?q=indianapolis&appid=f57468123507e0434fa3838390f4f1af`;
 
-  private currentLocation: string = 'http://localhost:3000/weather/setLocation';
+  private currentLocation: string = `${APIURL}/weather/setLocation`;
 
  
 

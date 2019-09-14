@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { APIURL } from '../environments/environment.prod';
 
 // interface LoginData {
 //   message: string;
@@ -13,8 +14,8 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  private _createUrl = 'http://localhost:3000/user/createuser';
-  private _loginUrl = 'http://localhost:3000/user/signin';
+  private _createUrl = `${APIURL}http://localhost:3000/user/createuser`;
+  private _loginUrl = `${APIURL}/user/signin`;
 
   constructor(private http: HttpClient, private _router: Router) { }
 
