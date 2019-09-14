@@ -17,7 +17,6 @@ import { FormsModule } from '@angular/forms';
 import { LayoutModule } from '@angular/cdk/layout';
 import { ProfileCardComponent } from './profile-card/profile-card.component';
 import { WeatherCardComponent } from './weather-card/weather-card.component';
-import { StocksCardComponent } from './stocks-card/stocks-card.component';
 import { TimeCardComponent } from './time-card/time-card.component';
 import { CalendarCardComponent } from './calendar-card/calendar-card.component';
 
@@ -36,7 +35,6 @@ import { AuthService } from './auth.service';
     HomeComponent,
     ProfileCardComponent,
     WeatherCardComponent,
-    StocksCardComponent,
     TimeCardComponent,
     CalendarCardComponent,
     LoginComponent,
