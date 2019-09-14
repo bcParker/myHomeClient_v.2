@@ -6,8 +6,8 @@
 				<mat-icon>more_vert</mat-icon>
 			</button>
 			<mat-menu #menu="matMenu" xh5osition="before">
-				<button mat-menu-item>Exh5and</button>
-				<button mat-menu-item>Remove</button>
+				<button mat-menu-item (click)='setLocation()'>Set Current Location</button>
+				<button mat-menu-item (click)='removeLocation()'>Remove Current Location</button>
 			</mat-menu>
 		</mat-card-title>
 	</mat-card-header>
@@ -21,4 +21,8 @@
 			<h5>Humidity: {{currWeather.main.humidity}}%</h5>
 		</div>
 	</mat-card-content>
+	<mat-form-field>
+		<input matInput placeholder="City" [(ngModel)]='city'>
+	</mat-form-field>
+	<button mat-raised-button (click)='getWeather()'>Search</button>
 </mat-card>
