@@ -3,12 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { APIURL } from '../environments/environment.prod';
 
-// interface LoginData {
-//   message: string;
-//   sessionToken: string;
-//   user: string;
-// }
-
 @Injectable({
   providedIn: 'root'
 })
