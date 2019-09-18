@@ -1,0 +1,57 @@
+<!-- <h1 mat-dialog-title><strong>{{action}}</strong> MODAL</h1>
+<div mat-dialog-content>
+  <mat-form-field *ngIf="action != 'Delete'; else elseTemplate">
+    <input placeholder="{{action}} Symbol" matInput [(ngModel)]="local_data.symbol"> -->
+    <!-- <input placeholder="{{action}} Symbol" matInput="local_data.symbol"> -->
+  <!-- </mat-form-field>
+  <ng-template #elseTemplate>
+    Sure to delete <b>{{local_data.symbol}}</b>
+  </ng-template>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="doAction()">{{action}}</button>
+  <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+</div> -->
+<div style="height: 250px">
+<div style="width: 500px">
+<h1 mat-dialog-title>Welcome, <strong>{{user.name}}</strong>.</h1>
+
+<div style="width: 45%; float: left;">
+<mat-dialog-content>Update your Name</mat-dialog-content>
+<mat-form-field >
+        <input  matInput [(ngModel)]="user.name">
+        <!-- <input placeholder="{{action}} Symbol" matInput="local_data.symbol"> -->
+</mat-form-field>
+<!-- <mat-dialog-actions>
+    <button mat-button (click)="save(); ngOnInit()" matDialogClose >Update</button>
+    <button mat-button matDialogClose color="warn">Cancel</button>
+</mat-dialog-actions> -->
+</div>
+<div style="width: 45%; float: right;">
+<mat-dialog-content>Update your E-mail</mat-dialog-content>
+<mat-form-field >
+        <input matInput [(ngModel)]="user.email">
+        <!-- <input placeholder="{{action}} Symbol" matInput="local_data.symbol"> -->
+</mat-form-field>
+<!-- <mat-dialog-actions>
+    <button mat-button (click)="save(); ngOnInit()" matDialogClose >Update</button>
+    <button mat-button matDialogClose color="warn">Cancel</button>
+</mat-dialog-actions> -->
+</div>
+</div>
+</div>
+<div>
+<mat-dialog-content>Update your Avatar(URL)</mat-dialog-content>
+<mat-form-field style="width: 490px;">
+        <input  matInput [(ngModel)]="user.avatar">
+        <!-- <input placeholder="{{action}} Symbol" matInput="local_data.symbol"> -->
+</mat-form-field>
+<mat-dialog-actions style="margin: auto">
+    <!-- <button mat-button (click)="save(); ngOnInit()" matDialogClose >Update</button>
+    <button mat-button matDialogClose color="warn">Cancel</button> -->
+</mat-dialog-actions>
+</div>
+<div style="float: right">
+<button mat-flat-button (click)="save()" matDialogClose >Update</button>
+<button mat-flat-button matDialogClose color="warn">Cancel</button>
+</div>

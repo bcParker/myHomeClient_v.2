@@ -11,8 +11,7 @@
 				<mat-icon>more_vert</mat-icon>
 			</button>
 			<mat-menu #menu="matMenu" xh5osition="before">
-				<button mat-menu-item>Expand</button>
-				<button mat-menu-item>Remove</button>
+				<button mat-menu-item (click)="openDialog()">Edit</button>
 			</mat-menu>
 		</mat-card-title>
 	</mat-card-header>
@@ -21,9 +20,9 @@
             <img id="profile-pic" src={{user.avatar}} alt="Smiley face" height="100" width="100">
         </div>
 		<div class="other-div">
-            <p>Name: <span style="font-weight: bold">{{user.name}}</span><button style="margin-left: 55px;" mat-button  mat-flat-button color="primary">Edit</button></p>
-            <P>Email:<span style="color: blue"> {{user.email}}</span><button style="margin-left: 55px;" mat-button mat-flat-button color="primary">Edit</button></P>
-            <p>Password: <span style="font-weight: bold"> {{user.password}}</span><button style="margin-left: 5px;" mat-button mat-flat-button color="primary">Edit</button></p>
+            <p>Name: <span style="font-weight: bold">{{user.name}}</span></p>
+            <P>Email:<span style="color: blue"> {{user.email}}</span></P>
+            <p>Password: <span style="font-weight: bold" type="password"> {{user.password}}</span>
 		</div>
 	</mat-card-content>
 </mat-card>
