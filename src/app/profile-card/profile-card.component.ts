@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../users.service';
+import { Users } from '../users';
 
 @Component({
   selector: 'app-profile-card',
@@ -8,7 +9,7 @@ import { UsersService } from '../users.service';
 })
 export class ProfileCardComponent implements OnInit {
 
-  public user = [];
+  public user: Users[] = [];
 
   constructor(
     private userService: UsersService,
