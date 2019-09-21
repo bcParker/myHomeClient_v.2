@@ -3,8 +3,8 @@ export interface Wind {
 	deg: number;
 }
 
-// {
-// 	"type": "anyComponentStyle",
-// 		"maximumWarning": "6kb",
-// 			"maximumError": "10kb"
-// }
+{
+	"type": "anyComponentStyle",
+		"maximumWarning": "6kb",
+			"maximumError": "10kb"
+}
