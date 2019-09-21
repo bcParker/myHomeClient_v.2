@@ -1,0 +1,28 @@
+.card {
+    position: relative;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    width: 50%;
+  }
+  
+.more-button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+  }
+
+.stocksCard {
+    justify-content: center;
+    text-align: center;
+}
+
+.my-table {
+    width: 98%;
+}
+
+.addStock {
+   text-align: center;
+
+  }
