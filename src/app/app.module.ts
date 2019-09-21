@@ -23,12 +23,12 @@ import { CalendarCardComponent } from './clock-card/calendar-card.component';
 import { StocksService } from './stocks.service';
 import { LoginComponent } from './login/login.component';
 import { DialogBoxComponent } from './dialog-box/dialog-box.component';
-import {StocksTableComponent } from './stocks-table/stocks-table.component';
-
 import { UsersService } from './users.service';
 import { WeatherService } from './weather.service';
+import { StocksDbService } from './stocks-db.service';
+import { StocksTableTestComponent } from './stocks-table-test/stocks-table-test.component';
+import { StockDBTestService } from './stock-dbtest.service';
 import { ProfileModalComponent } from './profile-modal/profile-modal.component';
-
 import { AuthService } from './auth.service';
 
 @NgModule({
@@ -41,7 +41,7 @@ import { AuthService } from './auth.service';
     CalendarCardComponent,
     LoginComponent,
     DialogBoxComponent,
-    StocksTableComponent,
+    StocksTableTestComponent,
     ProfileModalComponent,
   ],
 
@@ -79,9 +79,12 @@ import { AuthService } from './auth.service';
     WeatherService,
     UsersService,
     StocksService,
+    StocksDbService,
+    StockDBTestService,
     AuthService,
     DialogBoxComponent,
   ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

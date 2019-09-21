@@ -1,0 +1,47 @@
+<mat-card class="card">
+    <mat-card-header>
+        <mat-card-title>
+            <h3>Stocks Card</h3>
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+                <button mat-menu-item>Expand</button>
+                <button mat-menu-item>Remove</button>
+            </mat-menu>
+        </mat-card-title>
+    </mat-card-header>  
+    <mat-card-content class="stocksCard">
+
+<div>
+    <mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="symbol">
+        <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+        <mat-cell *matCellDef="let stocksdb"> {{stocksdb.symbol}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+        <mat-cell *matCellDef="let stocksdb"> {{stocksdb.id}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+          <mat-cell *matCellDef="let stocksdb" class="action-link">
+              <a (click)="openDialog('Update',stocksdb)">Edit</a> |
+              <a (click)="openDialog('Delete',stocksdb)">Delete</a>
+          </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+    <br>
+    <button mat-button class="addStock" (click)="openDialog('Add', {})" mat-flat-button color="primary">Add
+        Stock</button>
+  </div>
+
+</mat-card-content>
+</mat-card>
