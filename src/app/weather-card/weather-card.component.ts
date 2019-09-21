@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../weather.service';
+import { CurrentWeather } from '../currentWeather.model';
 
 @Component({
   selector: 'app-weather-card',
@@ -8,7 +9,7 @@ import { WeatherService } from '../weather.service';
 })
 export class WeatherCardComponent {
 
-  public currWeather = [];
+  public currWeather: CurrentWeather;
   public trueLocal = {'current_location': 'true'};
   public falseLocal = {'current_location': 'false'};
   public city: string = '';
@@ -26,7 +27,7 @@ export class WeatherCardComponent {
     return Math.floor(((num - 273.15)*9/5+32));
   }
 
-  getWeather(city){
+  getWeather(){
     return this.weatherService.getWeather(this.city).subscribe(data => this.currWeather = data);
   }
 

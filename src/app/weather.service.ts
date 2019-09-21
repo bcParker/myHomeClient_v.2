@@ -22,10 +22,10 @@ export class WeatherService {
     private http: HttpClient,
   ) { }
 
-  getWeather(x): Observable<CurrentWeather[]>{
+  getWeather(x): Observable<CurrentWeather>{
     const weatherURL = `http://api.openweathermap.org/data/2.5/weather?q=${x}&appid=f57468123507e0434fa3838390f4f1af`;
 
-    return this.http.get<CurrentWeather[]>(weatherURL)
+    return this.http.get<CurrentWeather>(weatherURL)
   }
 
   setLocation(curLocal) {

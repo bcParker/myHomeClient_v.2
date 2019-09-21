@@ -12,13 +12,13 @@ import { APIURL } from '../environments/environment.prod';
 })
 export class UsersService {
 
-  userUrl: string = `${APIURL}/user/10`;
+  userUrl: string = `${APIURL}/user/1`;
 
   constructor(
     private http: HttpClient,
   ) { }
 
-  getUsers(): Observable<Users[]>{
-    return this.http.get<Users[]>(this.userUrl);
+  getUsers(): Observable<Users>{
+    return this.http.get<Users>(this.userUrl);
   }
 }

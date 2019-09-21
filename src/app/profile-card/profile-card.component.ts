@@ -9,15 +9,18 @@ import { Users } from '../users';
 })
 export class ProfileCardComponent implements OnInit {
 
-  public user: Users[] = [];
+  public user: Users 
 
   constructor(
     private userService: UsersService,
   ) { }
 
   ngOnInit() {
-    this.userService.getUsers().subscribe(data => this.user = data);
+    this.userService.getUsers().subscribe(data => {
+      console.log(data)
+      this.user = data
+    });
 
-    console.log(this.user);
+    // console.log(this.user);
 }
 }
