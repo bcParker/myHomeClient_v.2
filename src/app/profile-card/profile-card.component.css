@@ -1,14 +1,15 @@
 .grid-container {
-    margin: 1%;
+    margin: 20px;
   }
   
   .dashboard-card {
-    position: relative;
+    position: absolute;
     top: 15px;
     left: 15px;
     right: 15px;
     bottom: 15px;
-    width: 40%;
+    width: auto;
+    height: 50%;
   }
   
   .more-button {
@@ -42,3 +43,5 @@
   h3 {
     margin-right: auto;
   }
+
+  

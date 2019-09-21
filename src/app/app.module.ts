@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +17,6 @@ import { FormsModule } from '@angular/forms';
 import { LayoutModule } from '@angular/cdk/layout';
 import { ProfileCardComponent } from './profile-card/profile-card.component';
 import { WeatherCardComponent } from './weather-card/weather-card.component';
-import { StocksCardComponent } from './stocks-card/stocks-card.component';
 import { TimeCardComponent } from './time-card/time-card.component';
 import { CalendarCardComponent } from './clock-card/calendar-card.component';
 
@@ -30,6 +29,7 @@ import { UsersService } from './users.service';
 import { WeatherService } from './weather.service';
 import { ProfileModalComponent } from './profile-modal/profile-modal.component';
 
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,6 @@ import { ProfileModalComponent } from './profile-modal/profile-modal.component';
     HomeComponent,
     ProfileCardComponent,
     WeatherCardComponent,
-    StocksCardComponent,
     TimeCardComponent,
     CalendarCardComponent,
     LoginComponent,
@@ -47,7 +46,7 @@ import { ProfileModalComponent } from './profile-modal/profile-modal.component';
   ],
 
   imports: [
-    CommonModule, 
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -73,11 +72,16 @@ import { ProfileModalComponent } from './profile-modal/profile-modal.component';
   ],
   exports: [
   ],
-
   entryComponents: [
     DialogBoxComponent, ProfileModalComponent,
   ],
-  providers: [WeatherService, UsersService, StocksService ],
+  providers: [
+    WeatherService,
+    UsersService,
+    StocksService,
+    AuthService,
+    DialogBoxComponent,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
