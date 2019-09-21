@@ -3,14 +3,14 @@
   }
   
   .dashboard-card {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    right: 15px;
-    bottom: 15px;
-    width: auto;
-    height: 50%;
-  }
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	right: 15px;
+  bottom: 15px;
+  width: auto;
+  height: 50%;
+}
   
   .more-button {
     position: absolute;
@@ -25,10 +25,10 @@
   .titlename{
     left: 0px;
   }
-  .pic-div{
+  .analog{
     flex: 0 0   10%;
 }
-  .other-div {
+  .date {
     flex: 1;
   }
 
@@ -43,5 +43,3 @@
   h3 {
     margin-right: auto;
   }
-
-  

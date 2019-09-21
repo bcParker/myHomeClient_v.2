@@ -18,7 +18,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { ProfileCardComponent } from './profile-card/profile-card.component';
 import { WeatherCardComponent } from './weather-card/weather-card.component';
 import { TimeCardComponent } from './time-card/time-card.component';
-import { CalendarCardComponent } from './calendar-card/calendar-card.component';
+import { CalendarCardComponent } from './clock-card/calendar-card.component';
 
 import { StocksService } from './stocks.service';
 import { LoginComponent } from './login/login.component';
@@ -27,6 +27,8 @@ import {StocksTableComponent } from './stocks-table/stocks-table.component';
 
 import { UsersService } from './users.service';
 import { WeatherService } from './weather.service';
+import { ProfileModalComponent } from './profile-modal/profile-modal.component';
+
 import { AuthService } from './auth.service';
 
 @NgModule({
@@ -40,10 +42,11 @@ import { AuthService } from './auth.service';
     LoginComponent,
     DialogBoxComponent,
     StocksTableComponent,
+    ProfileModalComponent,
   ],
 
   imports: [
-    CommonModule, 
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -64,17 +67,20 @@ import { AuthService } from './auth.service';
     MatSelectModule,
     MatDividerModule,
     MatFormFieldModule,
+    LayoutModule,
+
   ],
   exports: [
   ],
   entryComponents: [
-    DialogBoxComponent
+    DialogBoxComponent, ProfileModalComponent,
   ],
   providers: [
-    WeatherService, 
-    UsersService, 
-    StocksService, 
-    AuthService
+    WeatherService,
+    UsersService,
+    StocksService,
+    AuthService,
+    DialogBoxComponent,
   ],
   bootstrap: [AppComponent]
 })
