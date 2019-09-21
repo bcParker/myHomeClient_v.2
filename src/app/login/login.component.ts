@@ -47,8 +47,8 @@ export class LoginComponent {
     return this.state == 'signup' ? 'show' : 'hide';
   }
 
-loginUserData = {};
-createUserData = {};
+loginUserData: UserData;
+createUserData: UserData;
 
 constructor(private _router: Router, private _auth: AuthService) { }
 
@@ -80,4 +80,9 @@ loginUser(){
     )
 }
 
+}
+
+interface UserData {
+  email: string;
+  password: string;
 }
