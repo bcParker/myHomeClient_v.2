@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHandler, HttpHeaders } from "@angular/common/http";
 import { SelectedStocks } from './selectedStocks.model';
+import { APIURL } from '../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'

@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../users.service';
 
+import { MatDialog } from '@angular/material';
+import { ProfileModalComponent } from '../profile-modal/profile-modal.component';
+import { Users } from '../users.model';
+
+import { Users } from '../users';
+
 @Component({
   selector: 'app-profile-card',
   templateUrl: './profile-card.component.html',
@@ -8,15 +14,25 @@ import { UsersService } from '../users.service';
 })
 export class ProfileCardComponent implements OnInit {
 
-  public user = [];
+  public user: Users;
 
   constructor(
-    private userService: UsersService,
+    private userService: UsersService, private dialog: MatDialog,
   ) { }
 
-  ngOnInit() {
-    this.userService.getUsers().subscribe(data => this.user = data);
 
-    console.log(this.user);
+  openDialog() {
+    const dialogRef = this.dialog.open(ProfileModalComponent);
+    dialogRef.afterClosed().subscribe(() => this.ngOnInit());
+  }
+
+
+  ngOnInit() {
+    this.userService.getUsers().subscribe(data => {
+      console.log(data)
+      this.user = data
+    });
+
+    // console.log(this.user);
 }
 }

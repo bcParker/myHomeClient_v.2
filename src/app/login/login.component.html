@@ -23,7 +23,7 @@
                         </tr>
                     </table>
                 </form>
-                <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+                <!-- <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner> -->
             </mat-card-content>
             <mat-card-actions>
                 <button mat-raised-button (click)="loginUser()" type="button" color="primary">Login</button>
@@ -39,24 +39,24 @@
                         <tr>
                             <td>
                                 <mat-form-field class="example-full-width">
-                                    <input [(ngModel)]="loginUserData.email" matInput placeholder="Email" class="Email" name="Email" required>
+                                    <input [(ngModel)]="createUserData.email" matInput placeholder="Email" class="Email" name="Email" required>
                                 </mat-form-field>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <mat-form-field class="example-full-width">
-                                    <input [(ngModel)]="loginUserData.password" matInput placeholder="Password" type="password" class="password"
+                                    <input [(ngModel)]="createUserData.password" matInput placeholder="Password" type="password" class="password"
                                         name="password" required>
                                 </mat-form-field>
                             </td>
                         </tr>
                     </table>
                 </form>
-                <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+                <!-- <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner> -->
             </mat-card-content>
             <mat-card-actions>
-                <button mat-raised-button (click)="signInUser()" type="submit" color="primary">Submit</button>
+                <button mat-raised-button (click)="createUser()" type="button" color="primary">Submit</button>
             </mat-card-actions>
         </div>
         <button mat-stroked-button id="toggle" (click)="loginToggle()" color="primary">Login/Register</button>

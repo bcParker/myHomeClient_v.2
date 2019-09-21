@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,7 +18,8 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { ProfileCardComponent } from './profile-card/profile-card.component';
 import { WeatherCardComponent } from './weather-card/weather-card.component';
 import { TimeCardComponent } from './time-card/time-card.component';
-import { CalendarCardComponent } from './calendar-card/calendar-card.component';
+import { CalendarCardComponent } from './clock-card/calendar-card.component';
+
 import { StocksService } from './stocks.service';
 import { LoginComponent } from './login/login.component';
 import { DialogBoxComponent } from './dialog-box/dialog-box.component';
@@ -27,6 +28,8 @@ import { WeatherService } from './weather.service';
 import { StocksDbService } from './stocks-db.service';
 import { StocksTableTestComponent } from './stocks-table-test/stocks-table-test.component';
 import { StockDBTestService } from './stock-dbtest.service';
+import { ProfileModalComponent } from './profile-modal/profile-modal.component';
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
@@ -39,10 +42,11 @@ import { StockDBTestService } from './stock-dbtest.service';
     LoginComponent,
     DialogBoxComponent,
     StocksTableTestComponent,
+    ProfileModalComponent,
   ],
 
   imports: [
-    CommonModule, 
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -63,14 +67,24 @@ import { StockDBTestService } from './stock-dbtest.service';
     MatSelectModule,
     MatDividerModule,
     MatFormFieldModule,
+    LayoutModule,
+
   ],
   exports: [
   ],
-
   entryComponents: [
-    DialogBoxComponent
+    DialogBoxComponent, ProfileModalComponent,
   ],
-  providers: [WeatherService, UsersService, StocksService, StocksDbService, StockDBTestService],
+  providers: [
+    WeatherService,
+    UsersService,
+    StocksService,
+    StocksDbService,
+    StockDBTestService,
+    AuthService,
+    DialogBoxComponent,
+  ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

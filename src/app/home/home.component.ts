@@ -9,7 +9,7 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 })
 export class HomeComponent implements OnInit {
 
-  ngOnInit(){ }
+  ngOnInit() { }
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 }
