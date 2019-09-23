@@ -1,4 +1,4 @@
-<div class='maindiv'>
+<!-- <div class='maindiv'>
     <mat-card class="example-card">
         <div class="auth" [@formState]="loginState">
             <mat-card-header>
@@ -22,9 +22,9 @@
                             </td>
                         </tr>
                     </table>
-                </form>
+                </form> -->
                 <!-- <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner> -->
-            </mat-card-content>
+            <!-- </mat-card-content>
             <mat-card-actions>
                 <button mat-raised-button (click)="loginUser()" type="button" color="primary">Login</button>
             </mat-card-actions>
@@ -52,9 +52,9 @@
                             </td>
                         </tr>
                     </table>
-                </form>
+                </form> -->
                 <!-- <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner> -->
-            </mat-card-content>
+            <!-- </mat-card-content>
             <mat-card-actions>
                 <button mat-raised-button (click)="createUser()" type="button" color="primary">Submit</button>
             </mat-card-actions>
@@ -62,5 +62,69 @@
         <button mat-stroked-button id="toggle" (click)="loginToggle()" color="primary">Login/Register</button>
         <br>
         <br>
+    </mat-card>
+</div> -->
+<div class="maindiv">
+<mat-card>
+        <mat-card-header>
+            <mat-card-title>Login</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form class="example-form">
+                <table class="example-full-width" cellspacing="0">
+                    <tr>
+                        <td>
+                            <mat-form-field class="example-full-width">
+                                <input [(ngModel)]="loginUserData.email" matInput placeholder="email" class="email" name="email"
+                                    required>
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <mat-form-field class="example-full-width">
+                                <input [(ngModel)]="loginUserData.password" matInput placeholder="password" type="password"
+                                    class="password" name="password" required>
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button (click)="loginUser()" type="button" color="primary">Login</button>
+        </mat-card-actions>
+    </mat-card>
+    <br/>
+    <br/>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Create Account</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form class="example-form">
+                <table class="example-full-width" cellspacing="0">
+                    <tr>
+                        <td>
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <input [(ngModel)]="createUserData.email" matInput placeholder="email" class="email" name="email"
+                                    required>
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <mat-form-field appearance="outline">
+                                <input [(ngModel)]="createUserData.password" matInput placeholder="password" type="password"
+                                    class="password" name="password" required>
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button (click)="createUser()" type="button" color="primary">Create</button>
+        </mat-card-actions>
     </mat-card>
 </div>

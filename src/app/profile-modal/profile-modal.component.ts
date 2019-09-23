@@ -23,13 +23,13 @@ export class ProfileModalComponent implements OnInit {
     this.userService.getUsers().subscribe(data => this.user = data);
   }
 
-  save(): void {
-    this.userService.updateUser(this.user)
-    .subscribe(
-    (data => {
-      this.user = data;
-      this.refresh();
-    }),
-    );
-  }
+   save(): void {
+     this.userService.updateUser(this.user)
+     .subscribe(
+     (data => {
+       this.user = data;
+       this.refresh();
+     }),
+     );
+   }
 }

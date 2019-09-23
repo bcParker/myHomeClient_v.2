@@ -5,7 +5,7 @@ import { MatDialog } from '@angular/material';
 import { ProfileModalComponent } from '../profile-modal/profile-modal.component';
 import { Users } from '../users.model';
 
-import { Users } from '../users';
+// // import { Users } from '../users';
 
 @Component({
   selector: 'app-profile-card',

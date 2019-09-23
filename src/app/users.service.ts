@@ -6,7 +6,7 @@ import { Users } from './users.model';
 // import { Users } from './users';
 
 //import { catchError, map, tap } from 'rxjs/operators';
-import { Users } from './users';
+// import { Users } from './users';
 import { APIURL } from '../environments/environment.prod';
 
 
@@ -34,13 +34,16 @@ export class UsersService {
     return this.http.get<Users>(this.userUrl);
   }
 
+
   // updateUser(users: Users): Observable<any>{
   //   return this.http.put(this.userUrl, users, this.httpOptions);
   // }
 
-  updateUser(users: Users): Observable<any> {
-    return this.http.put(this.updateUrl, users, this.httpOptions);
-  getUsers(): Observable<Users>{
-    return this.http.get<Users>(this.userUrl);
-  }
+   updateUser(users: Users): Observable<any> {
+     return this.http.put(this.updateUrl, users, this.httpOptions);
+  //   getUsers(): Observable<Users>{
+  //    return this.http.get<Users>(this.userUrl);
+  //  };
+ }
+
 }
