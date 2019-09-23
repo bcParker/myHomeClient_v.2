@@ -4,8 +4,6 @@ import { StocksDb } from '../stocksdb.model';
 import { StocksDbService } from '../stocks-db.service';
 import { StockDBTestService } from '../stock-dbtest.service'
 
-
-
 @Component({
   selector: 'app-dialog-box',
   templateUrl: './dialog-box.component.html',

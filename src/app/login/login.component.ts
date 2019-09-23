@@ -1,4 +1,3 @@
-
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import {
@@ -47,8 +46,8 @@ export class LoginComponent {
     return this.state == 'signup' ? 'show' : 'hide';
   }
 
-loginUserData: UserData;
-createUserData: UserData;
+loginUserData: UserData = {email: '', password: ''};
+createUserData: UserData = {email: '', password: ''};
 
 constructor(private _router: Router, private _auth: AuthService) { }
 
@@ -85,4 +84,4 @@ loginUser(){
 interface UserData {
   email: string;
   password: string;
-}
+} 

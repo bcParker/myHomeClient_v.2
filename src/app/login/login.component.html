@@ -1,8 +1,71 @@
 <div class='maindiv'>
-    <mat-card class="example-card">
-        <div class="auth" [@formState]="loginState">
+        <!-- <mat-card class="example-card">
+            <div class="auth" [@formState]="loginState">
+                <mat-card-header>
+                    <mat-card-title class='title'>Login</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <form class="example-form">
+                        <table class="example-full-width" cellspacing="0">
+                            <tr>
+                                <td>
+                                    <mat-form-field class="example-full-width">
+                                        <input [(ngModel)]="loginUserData.email" matInput placeholder="email" class="email" name="email" required>
+                                    </mat-form-field>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <mat-form-field class="example-full-width">
+                                        <input [(ngModel)]="loginUserData.password" matInput placeholder="password" type="password" class="password" name="password" required>
+                                    </mat-form-field>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                    <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-raised-button (click)="loginUser()" type="button" color="primary">Login</button>
+                </mat-card-actions>
+            </div>
+            <div class="auth" [@formState]="signupState">
+                <mat-card-header>
+                    <mat-card-title>Create New Dashboard</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <form class="example-form">
+                        <table class="example-full-width" cellspacing="0">
+                            <tr>
+                                <td>
+                                    <mat-form-field class="example-full-width">
+                                        <input [(ngModel)]="createUserData.email" matInput placeholder="Email" class="Email" name="Email" required>
+                                    </mat-form-field>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <mat-form-field class="example-full-width">
+                                        <input [(ngModel)]="createUserData.password" matInput placeholder="Password" type="password" class="password"
+                                            name="password" required>
+                                    </mat-form-field>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                    <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-raised-button (click)="createUser()" type="button" color="primary">Submit</button>
+                </mat-card-actions>
+            </div>
+            <button mat-stroked-button id="toggle" (click)="loginToggle()" color="primary">Login/Register</button>
+            <br>
+            <br>
+        </mat-card> -->
+        <mat-card>
             <mat-card-header>
-                <mat-card-title class='title'>Login</mat-card-title>
+                <mat-card-title>Login</mat-card-title>
             </mat-card-header>
             <mat-card-content>
                 <form class="example-form">
@@ -10,57 +73,56 @@
                         <tr>
                             <td>
                                 <mat-form-field class="example-full-width">
-                                    <input [(ngModel)]="loginUserData.email" matInput placeholder="email" class="email" name="email" required>
+                                    <input [(ngModel)]="loginUserData.email" matInput placeholder="email" class="email" name="email"
+                                        required>
                                 </mat-form-field>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <mat-form-field class="example-full-width">
-                                    <input [(ngModel)]="loginUserData.password" matInput placeholder="password" type="password" class="password" name="password" required>
+                                    <input [(ngModel)]="loginUserData.password" matInput placeholder="password" type="password"
+                                        class="password" name="password" required>
                                 </mat-form-field>
                             </td>
                         </tr>
                     </table>
                 </form>
-                <!-- <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner> -->
             </mat-card-content>
             <mat-card-actions>
                 <button mat-raised-button (click)="loginUser()" type="button" color="primary">Login</button>
             </mat-card-actions>
-        </div>
-        <div class="auth" [@formState]="signupState">
+        </mat-card>
+        <br/>
+        <br/>
+        <mat-card>
             <mat-card-header>
-                <mat-card-title>Create New Dashboard</mat-card-title>
+                <mat-card-title>Create Account</mat-card-title>
             </mat-card-header>
             <mat-card-content>
                 <form class="example-form">
                     <table class="example-full-width" cellspacing="0">
                         <tr>
                             <td>
-                                <mat-form-field class="example-full-width">
-                                    <input [(ngModel)]="createUserData.email" matInput placeholder="Email" class="Email" name="Email" required>
+                                <mat-form-field appearance="outline" class="example-full-width">
+                                    <input [(ngModel)]="createUserData.email" matInput placeholder="email" class="email" name="email"
+                                        required>
                                 </mat-form-field>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <mat-form-field class="example-full-width">
-                                    <input [(ngModel)]="createUserData.password" matInput placeholder="Password" type="password" class="password"
-                                        name="password" required>
+                                <mat-form-field appearance="outline">
+                                    <input [(ngModel)]="createUserData.password" matInput placeholder="password" type="password"
+                                        class="password" name="password" required>
                                 </mat-form-field>
                             </td>
                         </tr>
                     </table>
                 </form>
-                <!-- <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner> -->
             </mat-card-content>
             <mat-card-actions>
-                <button mat-raised-button (click)="createUser()" type="button" color="primary">Submit</button>
+                <button mat-raised-button (click)="createUser()" type="button" color="primary">Create</button>
             </mat-card-actions>
-        </div>
-        <button mat-stroked-button id="toggle" (click)="loginToggle()" color="primary">Login/Register</button>
-        <br>
-        <br>
-    </mat-card>
-</div>
+        </mat-card>
+    </div>

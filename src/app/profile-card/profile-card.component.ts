@@ -5,8 +5,6 @@ import { MatDialog } from '@angular/material';
 import { ProfileModalComponent } from '../profile-modal/profile-modal.component';
 import { Users } from '../users.model';
 
-import { Users } from '../users';
-
 @Component({
   selector: 'app-profile-card',
   templateUrl: './profile-card.component.html',
@@ -31,8 +29,6 @@ export class ProfileCardComponent implements OnInit {
     this.userService.getUsers().subscribe(data => {
       console.log(data)
       this.user = data
-    });
-
-    // console.log(this.user);
+    })
 }
 }

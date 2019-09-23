@@ -1,9 +1,11 @@
 import { Component, OnInit, ViewChild  } from '@angular/core';
 import { StockDBTestService } from '../stock-dbtest.service';
+import { StocksService } from '../stocks.service';
 import { Observable } from 'rxjs';
 // import 'rxjs/add/observable/of';
 import {DataSource} from '@angular/cdk/collections';
 import { StocksDb } from '../stocksdb.model';
+import { SelectedStocks } from '../selectedStocks.model'
 import { MatDialog, MatTable } from '@angular/material';
 import { DialogBoxComponent } from '../dialog-box/dialog-box.component';
 
@@ -16,14 +18,19 @@ export class StocksTableTestComponent implements OnInit {
   // dataSource = new StockDataSource(this.stockService);
 
   dataSource: any;
+  public selectedStocks: any;
+  public stockQuotes: String;
+  public price: number;
 
-  displayedColumns : string[] = ['symbol', 'id', 'action'];
+  displayedColumns : string[] = ['symbol', 'id', 'price', 'action'];
   @ViewChild(MatTable,{static:true}) table: MatTable<any>;
-  constructor(private stockService: StockDBTestService, public dialog: MatDialog) { }
+  constructor(private stockService: StockDBTestService, private stockService2: StocksService, public dialog: MatDialog) { }
   
   ngOnInit() {
     this.stockService.getDbStocks()
     this.stockService.cast.subscribe(data => this.dataSource=data)
+    // this.stockService2.getLiveStocks(this.stockQuotes.price).subscribe(data => this.selectedStocks = data);
+    //   console.log(this.selectedStocks);
   }
 
   openDialog(action,obj) {

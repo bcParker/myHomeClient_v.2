@@ -1,47 +1,58 @@
 <mat-card class="card">
-    <mat-card-header>
-        <mat-card-title>
-            <h3>Stocks Card</h3>
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-                <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" xPosition="before">
-                <button mat-menu-item>Expand</button>
-                <button mat-menu-item>Remove</button>
-            </mat-menu>
-        </mat-card-title>
-    </mat-card-header>  
-    <mat-card-content class="stocksCard">
+  <mat-card-header>
+    <mat-card-title>
+      <h3>Stocks Card</h3>
+      <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu" xPosition="before">
+        <button mat-menu-item>Bull</button>
+        <button mat-menu-item>Bear</button>
+      </mat-menu>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="stocksCard">
 
-<div>
-    <mat-table [dataSource]="dataSource">
+    <div>
+      <mat-table [dataSource]="dataSource">
 
-      <ng-container matColumnDef="symbol">
-        <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
-        <mat-cell *matCellDef="let stocksdb"> {{stocksdb.symbol}} </mat-cell>
-      </ng-container>
+        <ng-container matColumnDef="symbol">
+          <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+          <mat-cell *matCellDef="let stocksdb"> {{stocksdb.symbol}} </mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="id">
-        <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
-        <mat-cell *matCellDef="let stocksdb"> {{stocksdb.id}} </mat-cell>
-      </ng-container>
+        <ng-container matColumnDef="id">
+          <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+          <mat-cell *matCellDef="let stocksdb"> {{stocksdb.id}} </mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="action">
-        <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+        <ng-container matColumnDef="price">
+          <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+          <mat-cell *matCellDef="let stocksdb"> </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+          <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
           <mat-cell *matCellDef="let stocksdb" class="action-link">
-              <a (click)="openDialog('Update',stocksdb)">Edit</a> |
-              <a (click)="openDialog('Delete',stocksdb)">Delete</a>
+            <a (click)="openDialog('Update',stocksdb)">Edit</a> |
+            <a (click)="openDialog('Delete',stocksdb)">Delete</a>
           </mat-cell>
-      </ng-container>
+        </ng-container>
 
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-    </mat-table>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
 
-    <br>
-    <button mat-button class="addStock" (click)="openDialog('Add', {})" mat-flat-button color="primary">Add
-        Stock</button>
-  </div>
+      <br>
+      <img src="https://static.thenounproject.com/png/76150-200.png" id="bull" alt="bull market" height="55"
+        width="65" />
 
-</mat-card-content>
+      <button mat-button class="addStock" (click)="openDialog('Add', {})" mat-flat-button color="primary">Add Stock</button>
+
+      <img src="https://cdn2.iconfinder.com/data/icons/animals-9/100/Brown_bear-512.png" id="bear" alt="bear market"
+      height="60" width="60" />
+
+    </div>
+
+  </mat-card-content>
 </mat-card>

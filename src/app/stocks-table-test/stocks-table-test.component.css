@@ -26,3 +26,12 @@
    text-align: center;
 
   }
+
+  #bull {
+    float: left;
+  }
+
+  #bear {
+    float: right;
+    padding-left: 5px;
+  }

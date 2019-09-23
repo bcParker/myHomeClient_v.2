@@ -1,9 +1,8 @@
-.maindiv {
+/* .maindiv {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 .auth {
     display: flex;
     
@@ -11,7 +10,7 @@
  
 .example-card {
     width: 30em;
-}
+} */
 
 .example-form {
     display: flex;
@@ -20,13 +19,23 @@
 }
 
 .example-card {
+    display: flex;
     text-align: center;
+    flex-direction: column;
+    text-align: center;   
 }
 
+.mat-card {
+    color: black;
+}
+
+.mat-raised-button {
+    display: flex;
+}
+/* 
 #toggle {
     float: right;
 }
-
 .title {
     text-align: center;
-}
+} */
