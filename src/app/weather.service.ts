@@ -31,6 +31,9 @@ export class WeatherService {
   }
 
   setLocation(curLocal) {
+    // const body = {
+
+    // }
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -47,12 +50,11 @@ export class WeatherService {
 
   saveCity(city){
     const body = {
-      city: city,
-      current_location: true
+      city: city
     }
     const reqHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authoriztion': localStorage.getItem('token')
+      'Authorization': localStorage.getItem('token')
     });
     return(
       this.http.post<string>(this.addCity, body, {headers: reqHeaders})

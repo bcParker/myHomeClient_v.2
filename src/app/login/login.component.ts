@@ -62,6 +62,7 @@ createUser() {
       res => {
         console.log(res),
         localStorage.setItem('token', res.sessionToken)
+        this._router.navigate(['home'])
       },
       err => console.log(err),
     )
