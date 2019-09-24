@@ -13,6 +13,14 @@ import { APIURL } from '../environments/environment.prod';
 export class UsersService {
 
   userUrl: string = `${APIURL}/user/1`;
+  updateUrl: string = `${APIURL}/user1`;
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+      //'Authorization': localhost.getItem('token')
+    })
+  }
 
   constructor(
     private http: HttpClient,
@@ -20,5 +28,9 @@ export class UsersService {
 
   getUsers(): Observable<Users>{
     return this.http.get<Users>(this.userUrl);
+  }
+
+  updateUser(users: Users): Observable<any> {
+    return this.http.put(this.updateUrl, users, this.httpOptions)
   }
 }

@@ -17,17 +17,19 @@ import { FormsModule } from '@angular/forms';
 import { LayoutModule } from '@angular/cdk/layout';
 import { ProfileCardComponent } from './profile-card/profile-card.component';
 import { WeatherCardComponent } from './weather-card/weather-card.component';
-import { TimeCardComponent } from './time-card/time-card.component';
-import { CalendarCardComponent } from './calendar-card/calendar-card.component';
+import { ClockCardComponent } from './clock-card/clock-card.component';
 
 import { StocksService } from './stocks.service';
+import { StocksTableTestComponent } from './stocks-table-test/stocks-table-test.component';
+import { StockDBTestService } from './stocks-dbtest.service';
 import { LoginComponent } from './login/login.component';
 import { DialogBoxComponent } from './dialog-box/dialog-box.component';
-import {StocksTableComponent } from './stocks-table/stocks-table.component';
 
 import { UsersService } from './users.service';
 import { WeatherService } from './weather.service';
 import { AuthService } from './auth.service';
+import { ProfileModalComponent } from './profile-modal/profile-modal.component';
+
 
 @NgModule({
   declarations: [
@@ -35,11 +37,11 @@ import { AuthService } from './auth.service';
     HomeComponent,
     ProfileCardComponent,
     WeatherCardComponent,
-    TimeCardComponent,
-    CalendarCardComponent,
+    ClockCardComponent,
     LoginComponent,
     DialogBoxComponent,
-    StocksTableComponent,
+    ProfileModalComponent,
+    StocksTableTestComponent
   ],
 
   imports: [
@@ -68,13 +70,15 @@ import { AuthService } from './auth.service';
   exports: [
   ],
   entryComponents: [
-    DialogBoxComponent
+    DialogBoxComponent, ProfileModalComponent
   ],
   providers: [
     WeatherService, 
     UsersService, 
-    StocksService, 
-    AuthService
+    StocksService,
+    StockDBTestService, 
+    AuthService,
+    DialogBoxComponent
   ],
   bootstrap: [AppComponent]
 })

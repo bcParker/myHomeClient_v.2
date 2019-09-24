@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CalendarCardComponent } from './calendar-card.component';
+import { ProfileModalComponent } from './profile-modal.component';
 
-describe('CalendarCardComponent', () => {
-  let component: CalendarCardComponent;
-  let fixture: ComponentFixture<CalendarCardComponent>;
+describe('ProfileModalComponent', () => {
+  let component: ProfileModalComponent;
+  let fixture: ComponentFixture<ProfileModalComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CalendarCardComponent ]
+      declarations: [ ProfileModalComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CalendarCardComponent);
+    fixture = TestBed.createComponent(ProfileModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
