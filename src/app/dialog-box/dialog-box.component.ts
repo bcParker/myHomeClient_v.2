@@ -3,6 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { StocksDb } from '../stocksdb.model';
 // import { StocksDbService } from '../stocks-db.service';
 import { StockDBTestService } from '../stocks-dbtest.service';
+
 @Component({
   selector: 'app-dialog-box',
   templateUrl: './dialog-box.component.html',
@@ -32,7 +33,7 @@ export class DialogBoxComponent {
     } else if (this.action == 'Update') {
       this.dialogRef.close({ event: 'Update', data: this.local_data })
       this.api.updateStock(this.data.id, this.local_data.symbol);
-      
+
     } else if (this.action == 'Delete') {
       this.dialogRef.close({ event: 'Delete', data: this.local_data })
       this.api.deleteStock(this.data.id);

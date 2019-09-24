@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../weather.service';
 import { CurrentWeather } from '../currentWeather.model';
+// import { Weather } from './weather';
+// import { WeatherMain } from './weatherMain';
+// import { Wind } from './wind';
+// import { Name } from './name';
 
 @Component({
   selector: 'app-weather-card',
@@ -9,7 +13,7 @@ import { CurrentWeather } from '../currentWeather.model';
 })
 export class WeatherCardComponent {
 
-  public currWeather: CurrentWeather;
+  public currWeather: CurrentWeather
   public trueLocal = {'current_location': 'true'};
   public falseLocal = {'current_location': 'false'};
   public city: string = '';
@@ -19,10 +23,10 @@ export class WeatherCardComponent {
     private weatherService: WeatherService,
   ) { }
 
-  // ngOnInit() {
-  //   return this.weatherService.getWeather(this.city).subscribe(data => this.currWeather = data);
-  //   console.log(this.currWeather);
-  // }
+  ngOnInit() {
+    // return this.weatherService.getWeather(this.city).subscribe(data => this.currWeather = data);
+    console.log(this.currWeather);
+  }
 
   tempRound(num): number{
     return Math.floor(((num - 273.15)*9/5+32));
@@ -65,3 +69,10 @@ interface SavedCity {
   city: string;
   current_location: boolean;
 }
+
+// interface CurrentWeather {
+//   weather: Weather[];
+//   main: WeatherMain;
+//   wind: Wind;
+//   name: Name;
+// }

@@ -1,13 +1,14 @@
-.grid-container {
+/* .grid-container {
 	margin: 20px;
-}
+} */
 
-.dashboard-card {
-	position: absolute;
+.card {
+	position: relative;
 	top: 15px;
 	left: 15px;
 	right: 15px;
 	bottom: 15px;
+	width: 50%;
 }
 
 .more-button {
