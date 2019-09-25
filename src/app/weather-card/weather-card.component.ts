@@ -26,7 +26,10 @@ export class WeatherCardComponent {
   ) { }
 
   ngOnInit() {
-    this.weatherService.displayWeather(this.currentCity)
+    this.weatherService.displayWeather(this.currentCity).subscribe(res => {
+      data => this.currWeather = data;
+      localStorage.getItem('token')
+    }) 
     this.weatherService.getWeather(this.city).subscribe(data => this.currWeather = data);
   }
 

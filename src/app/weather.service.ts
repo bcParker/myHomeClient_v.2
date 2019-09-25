@@ -23,7 +23,7 @@ export class WeatherService {
     return this.http.get<CurrentWeather>(weatherURL)
   }
 
-  displayWeather(){
+  displayWeather(x){
     const databaseURL = `${APIURL}/weather/display`;
     const reqHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
