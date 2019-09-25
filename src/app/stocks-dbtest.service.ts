@@ -10,6 +10,7 @@ export class StockDBTestService {
   constructor(private http: HttpClient) { }
   public stockBehavior = new BehaviorSubject<StocksDb[]>([])
   cast = this.stockBehavior.asObservable()
+  
   //GET A SIGNED IN USERS STOCKS FROM PERSONAL DATABASE
   getDbStocks() {
     const getDbStocksURL = `http://localhost:3000/stocks/userstock`
@@ -20,6 +21,7 @@ export class StockDBTestService {
     this.http.get<StocksDb[]>(getDbStocksURL, { headers: reqHeaders })
       .subscribe(data => this.stockBehavior.next(data))
   }
+  
   addStock(stockdata) {
     const addStockURL = "http://localhost:3000/stocks/add"
     const body = {
@@ -35,6 +37,7 @@ export class StockDBTestService {
         .subscribe(() => this.getDbStocks())
     );
   }
+  
   // GET ALL STOCKS FROM PERSONAL DATABASE
   getStocks() {
     const getStockURL = `http://localhost:3000/stocks/list`
@@ -46,6 +49,7 @@ export class StockDBTestService {
       this.http.get(getStockURL, { headers: reqHeaders })
     );
   }
+  
   updateStock(id, updatedSymbol) {
     const updateStockURL = `http://localhost:3000/stocks/${id}`
     const body = {

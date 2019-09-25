@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../weather.service';
 import { CurrentWeather } from '../currentWeather.model';
+import { CurrentCity } from '../currentCity';
 // import { Weather } from './weather';
 // import { WeatherMain } from './weatherMain';
 // import { Wind } from './wind';
@@ -14,18 +15,19 @@ import { CurrentWeather } from '../currentWeather.model';
 export class WeatherCardComponent {
 
   public currWeather: CurrentWeather
-  public trueLocal = {'current_location': 'true'};
-  public falseLocal = {'current_location': 'false'};
+  // public trueLocal = {'current_location': 'true'};
+  // public falseLocal = {'current_location': 'false'};
   public city: string = '';
   public savedCity: SavedCity;
+  public currentCity: CurrentCity;
 
   constructor(
     private weatherService: WeatherService,
   ) { }
 
   ngOnInit() {
-    // return this.weatherService.getWeather(this.city).subscribe(data => this.currWeather = data);
-    console.log(this.currWeather);
+    this.weatherService.displayWeather(this.currentCity)
+    this.weatherService.getWeather(this.city).subscribe(data => this.currWeather = data);
   }
 
   tempRound(num): number{
@@ -47,32 +49,35 @@ export class WeatherCardComponent {
     )
   }
 
-  setLocation(){
-    this.weatherService.setLocation(this.trueLocal).subscribe(
+  deleteCity(){
+    this.weatherService.deleteCity().subscribe(
       res => {
-        data => this.trueLocal = data;
-        console.log(res)
+        data => this.deleteCity = data;
+        localStorage.getItem('token')
       },
       err => console.log(err)
     )
   }
 
-  removeLocation() {
-    this.weatherService.removeLocation(this.falseLocal).subscribe(
-      res => console.log(res),
-      err => console.log(err)
-    )
-  }
+  // setLocation(){
+  //   this.weatherService.setLocation(this.trueLocal).subscribe(
+  //     res => {
+  //       data => this.trueLocal = data;
+  //       console.log(res)
+  //     },
+  //     err => console.log(err)
+  //   )
+  // }
+
+  // removeLocation() {
+  //   this.weatherService.removeLocation(this.falseLocal).subscribe(
+  //     res => console.log(res),
+  //     err => console.log(err)
+  //   )
+  // }
 }
 
 interface SavedCity {
   city: string;
   current_location: boolean;
 }
-
-// interface CurrentWeather {
-//   weather: Weather[];
-//   main: WeatherMain;
-//   wind: Wind;
-//   name: Name;
-// }

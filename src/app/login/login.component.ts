@@ -75,6 +75,7 @@ loginUser(){
       res => {
         console.log(res.sessionToken)
           localStorage.setItem('token', res.sessionToken)
+          localStorage.setItem('id', res.user.userId)
           this._router.navigate(['home'])
       },
       err => console.log(err)

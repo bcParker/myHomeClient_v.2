@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CurrentWeather } from './currentWeather.model';
+import { CurrentCity } from './currentCity';
 import { APIURL } from '../environments/environment.prod';
 
 
@@ -11,14 +12,6 @@ import { APIURL } from '../environments/environment.prod';
 export class WeatherService {
 
   sessionToken: string = localStorage.getItem('token');
-
-  private cWeatherURL: string = `http://api.openweathermap.org/data/2.5/weather?q=indianapolis&appid=f57468123507e0434fa3838390f4f1af`;
-
-  private currentLocation: string = `${APIURL}/weather/setLocation`;
-
-  private addCity: string = `${APIURL}/weather/add`;
-
- 
 
   constructor(
     private http: HttpClient,
@@ -30,25 +23,17 @@ export class WeatherService {
     return this.http.get<CurrentWeather>(weatherURL)
   }
 
-  setLocation(curLocal) {
-    // const body = {
-
-    // }
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': localStorage.getItem('token')
-      })
-    }
-    console.log(httpOptions);
-    return this.http.put<string>(this.currentLocation, curLocal, httpOptions);
+  displayWeather(){
+    const databaseURL = `${APIURL}/weather/display`;
+    const reqHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': localStorage.getItem('token')
+    })
+    return this.http.get<CurrentCity>(databaseURL, {headers: reqHeaders})
   }
-
-  removeLocation(curLocal) {
-    return this.http.put<string>(this.currentLocation, curLocal)
-  }
-
+ 
   saveCity(city){
+    const addCity: string = `${APIURL}/weather/update`;
     const body = {
       city: city
     }
@@ -57,7 +42,18 @@ export class WeatherService {
       'Authorization': localStorage.getItem('token')
     });
     return(
-      this.http.post<string>(this.addCity, body, {headers: reqHeaders})
+      this.http.post<string>(addCity, body, {headers: reqHeaders})
     ) 
+  }
+
+  deleteCity(){
+    const deleteCity: string = `${APIURL}/weather/delete`;
+    const reqHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': localStorage.getItem('token')
+    });
+    return(
+      this.http.delete<string>(deleteCity, {headers: reqHeaders})
+    )
   }
 }
