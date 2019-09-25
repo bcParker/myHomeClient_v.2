@@ -2,20 +2,26 @@
 		<mat-card-header>
 			<mat-card-title> 	
 				Weather
-				<!-- <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-					<mat-icon>more_vert</mat-icon>
-				</button>
-				<mat-menu #menu="matMenu" xh5osition="before">
-					<button mat-menu-item (click)='setLocation()'>Set Current Location</button>
-					<button mat-menu-item (click)='removeLocation()'>Remove Current Location</button>
-				</mat-menu> -->
 			</mat-card-title>
 		</mat-card-header>
 		<mat-card-content class="dashboard-card-content">
+			<!-- <table mat-table [dataSource]='dataSource' class='mat-elevation-z8'>
+				<ng-container matColumnDef='City'>
+					<th mat-header-cell *matHeaderCellDef>City</th>
+					<td mat-cell *matCellDef='let currWeather'>{{currWeather?.name}}</td>
+				</ng-container>
+				<ng-container matColumnDef='skies'>
+					<th mat-header-cell *matHeaderCellDef>Skies</th>
+					<td mat-cell *matCellDef='let currWeather'>{{currWeather?.weather[0].main}}</td>
+				</ng-container>
+				<ng-container matColumnDef='current temp'>
+					<th mat-header-cell *matHeaderCellDef>Current Temp</th>
+					<td mat-cell *matCellDef='let currWeather'>{{currWeather?.weather[0].description}}</td>
+				</ng-container>
+			</table> -->
 			<div>
 				<h3>{{currWeather?.name}}</h3>
 				<h5>Skies: {{currWeather?.weather[0].main}}</h5>
-				<h6>{{currWeather?.weather[0].description}}</h6>
 				<h5>Current Temp: {{tempRound(currWeather?.main.temp)}}°F</h5>
 				<h5>Hi: {{tempRound(currWeather?.main.temp_max)}}°F</h5>
 				<h5>Lo: {{tempRound(currWeather?.main.temp_min)}}°F</h5>
@@ -25,8 +31,12 @@
 		<mat-form-field>
 			<input matInput placeholder="City" [(ngModel)]='city'>
 		</mat-form-field>
-		<button mat-raised-button (click)='getWeather()'>Search</button>
-		<button mat-raised-button (click)='saveCity()'>Save</button>
+		<button mat-raised-button class='button' (click)='getWeather()'>Search</button>
+		<br/>
+		<button *ngIf='!dataSource[0].city' mat-raised-button class='button' (click)='saveCity()'>Save</button>
+		<button *ngIf='dataSource[0].city' mat-raised-button class='button' (click)='setCity()'>Update</button>
+		<br/>
+		<br/>
 		<!-- <button mat-raised-button></button> -->
-		<button mat-raised-button (click)='deleteCity()'>Delete</button>
+		<button mat-raised-button class='button' (click)='deleteCity()'>Delete</button>
 	</mat-card>

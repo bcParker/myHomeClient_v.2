@@ -28,16 +28,17 @@ export class WeatherCardComponent implements OnInit {
 
   ngOnInit() {
     this.weatherService.displayWeather()
-    this.weatherService.cast.subscribe(data => this.dataSource = data)  
-    // return (
-      //   this.weatherService.displayWeather().subscribe(data => this.currentCity = data),
-      //   this.weatherService.getWeather(this.currentCity).subscribe(data => this.currWeather = data));
-
-    // this.weatherService.displayWeather(this.currentCity).subscribe(res => {
-    //   data => this.currWeather = data;
-    //   localStorage.getItem('token')
-    // }) 
-    // this.weatherService.getWeather(this.city).subscribe(data => this.currWeather = data);
+    this.weatherService.cast.subscribe(res => {
+      this.dataSource = res
+      console.log(this.dataSource)
+      if (this.dataSource[0].city != null) {
+        this.weatherService.getWeather(this.dataSource[0].city).subscribe(res => {
+          console.log(res)
+          this.currWeather = res
+        })
+      }
+      //console.log(res)
+    })  
   }
 
   tempRound(num): number{
@@ -59,10 +60,22 @@ export class WeatherCardComponent implements OnInit {
     )
   }
 
+  setCity(){
+    this.weatherService.setCity(this.currWeather).subscribe(
+      res => {
+        data=> this.savedCity = data;
+        localStorage.getItem('token')
+        console.log(res)
+      },
+      err => console.log(err)
+    )
+  }
+
   deleteCity(){
     this.weatherService.deleteCity().subscribe(
       res => {
-        data => this.deleteCity = data;
+        data => this.savedCity = data;
+        console.log(res)
         localStorage.getItem('token')
       },
       err => console.log(err)

@@ -17,6 +17,7 @@ export class WeatherService {
   constructor(
     private http: HttpClient,
   ) { }
+
   public weatherBehavior = new BehaviorSubject<CurrentWeather[]>([])
   cast = this.weatherBehavior.asObservable()
 
@@ -39,7 +40,7 @@ export class WeatherService {
   saveCity(city){
     const addCity: string = `${APIURL}/weather/add`;
     const body = {
-      city: city,
+      city: city.name,
       current_location: true
     }
     const reqHeaders = new HttpHeaders({
@@ -51,14 +52,29 @@ export class WeatherService {
     ) 
   }
 
+  setCity(city){
+    const updateCity: string =`${APIURL}/weather/update`
+    const body = {
+      city: city.name,
+      current_location: true
+    }
+    const reqHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': localStorage.getItem('token')
+    })
+    return(
+      this.http.put(updateCity, body, {headers: reqHeaders})
+    )
+  }
+
   deleteCity(){
-    const deleteCity: string = `${APIURL}/weather/delete`;
+    const delCity: string = `${APIURL}/weather/delete`;
     const reqHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': localStorage.getItem('token')
     });
     return(
-      this.http.delete<string>(deleteCity, {headers: reqHeaders})
+      this.http.delete(delCity, {headers: reqHeaders})
     )
   }
 }

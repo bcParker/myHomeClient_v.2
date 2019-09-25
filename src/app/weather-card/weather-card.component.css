@@ -6,8 +6,9 @@
 		bottom: 15px;
 		width: 90%;
 		height: 50vh;
-		/* text-align: center; */
+		justify-content: center;
 }
+
 
 .more-button {
 	position: absolute;
