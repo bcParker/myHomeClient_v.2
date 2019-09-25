@@ -1,18 +1,19 @@
 <mat-card class="card">
 		<mat-card-header>
 			<mat-card-title> 	
-				{{currWeather?.name}}
-				<button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+				Weather
+				<!-- <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
 					<mat-icon>more_vert</mat-icon>
 				</button>
 				<mat-menu #menu="matMenu" xh5osition="before">
 					<button mat-menu-item (click)='setLocation()'>Set Current Location</button>
 					<button mat-menu-item (click)='removeLocation()'>Remove Current Location</button>
-				</mat-menu>
+				</mat-menu> -->
 			</mat-card-title>
 		</mat-card-header>
 		<mat-card-content class="dashboard-card-content">
 			<div>
+				<h3>{{currWeather?.name}}</h3>
 				<h5>Skies: {{currWeather?.weather[0].main}}</h5>
 				<h6>{{currWeather?.weather[0].description}}</h6>
 				<h5>Current Temp: {{tempRound(currWeather?.main.temp)}}°F</h5>
@@ -26,5 +27,6 @@
 		</mat-form-field>
 		<button mat-raised-button (click)='getWeather()'>Search</button>
 		<button mat-raised-button (click)='saveCity()'>Save</button>
+		<!-- <button mat-raised-button></button> -->
 		<button mat-raised-button (click)='deleteCity()'>Delete</button>
 	</mat-card>

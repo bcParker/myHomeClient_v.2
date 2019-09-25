@@ -12,8 +12,9 @@ import { CurrentCity } from '../currentCity';
   templateUrl: './weather-card.component.html',
   styleUrls: ['./weather-card.component.css']
 })
-export class WeatherCardComponent {
+export class WeatherCardComponent implements OnInit {
 
+  public dataSource: any;
   public currWeather: CurrentWeather
   // public trueLocal = {'current_location': 'true'};
   // public falseLocal = {'current_location': 'false'};
@@ -26,11 +27,17 @@ export class WeatherCardComponent {
   ) { }
 
   ngOnInit() {
-    this.weatherService.displayWeather(this.currentCity).subscribe(res => {
-      data => this.currWeather = data;
-      localStorage.getItem('token')
-    }) 
-    this.weatherService.getWeather(this.city).subscribe(data => this.currWeather = data);
+    this.weatherService.displayWeather()
+    this.weatherService.cast.subscribe(data => this.dataSource = data)  
+    // return (
+      //   this.weatherService.displayWeather().subscribe(data => this.currentCity = data),
+      //   this.weatherService.getWeather(this.currentCity).subscribe(data => this.currWeather = data));
+
+    // this.weatherService.displayWeather(this.currentCity).subscribe(res => {
+    //   data => this.currWeather = data;
+    //   localStorage.getItem('token')
+    // }) 
+    // this.weatherService.getWeather(this.city).subscribe(data => this.currWeather = data);
   }
 
   tempRound(num): number{

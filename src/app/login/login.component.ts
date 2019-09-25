@@ -141,7 +141,7 @@ createUser() {
        console.log(res),
        localStorage.setItem('token', res.sessionToken)
        this._router.navigate(['home'])
-       //this._auth.userstuff = res;
+       this._auth.userstuff = res;
      },
      err => console.log(err),
    )
@@ -153,8 +153,8 @@ loginUser(){
        console.log(res)
          localStorage.setItem('token', res.sessionToken)
          this._router.navigate(['home'])
-         //this._auth.userstuff = res;
-         //console.log(this._auth.userstuff);
+         this._auth.userstuff = res;
+         console.log(this._auth.userstuff);
      },
      err => console.log(err)
    )
