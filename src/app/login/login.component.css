@@ -1,7 +1,8 @@
-/* .maindiv {
+.maindiv {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 5%;
 }
 
 .auth {
@@ -11,7 +12,7 @@
  
 .example-card {
     width: 30em;
-} */
+}
 
 .example-form {
     display: flex;
@@ -31,13 +32,14 @@
 }
 
 .mat-raised-button {
-    display: flex;
+    /* display: flex; */
 }
-/* 
+
 #toggle {
-    float: right;
+    margin: auto;
+    width: 30%;
 }
 
 .title {
     text-align: center;
-} */
+}

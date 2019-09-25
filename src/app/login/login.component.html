@@ -1,5 +1,5 @@
 <div class='maindiv'>
-    <!-- <mat-card class="example-card">
+    <mat-card class="example-card">
         <div class="auth" [@formState]="loginState">
             <mat-card-header>
                 <mat-card-title class='title'>Login</mat-card-title>
@@ -10,14 +10,14 @@
                         <tr>
                             <td>
                                 <mat-form-field class="example-full-width">
-                                    <input [(ngModel)]="loginUserData.email" matInput placeholder="email" class="email" name="email" required>
+                                    <input [(ngModel)]="loginUserData.email" matInput placeholder="Email" class="email" name="email" required>
                                 </mat-form-field>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <mat-form-field class="example-full-width">
-                                    <input [(ngModel)]="loginUserData.password" matInput placeholder="password" type="password" class="password" name="password" required>
+                                    <input [(ngModel)]="loginUserData.password" matInput placeholder="Password" type="password" class="password" name="password" required>
                                 </mat-form-field>
                             </td>
                         </tr>
@@ -62,8 +62,8 @@
         <button mat-stroked-button id="toggle" (click)="loginToggle()" color="primary">Login/Register</button>
         <br>
         <br>
-    </mat-card> -->
-    <mat-card>
+    </mat-card>
+    <!-- <mat-card>
         <mat-card-header>
             <mat-card-title>Login</mat-card-title>
         </mat-card-header>
@@ -125,4 +125,4 @@
             <button mat-raised-button (click)="createUser()" type="button" color="primary">Create</button>
         </mat-card-actions>
     </mat-card>
-</div>
+</div> -->

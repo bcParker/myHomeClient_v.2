@@ -1,12 +1,11 @@
 <mat-toolbar color='primary'>
 	<span>myHome</span>
-	<ul class='navbar-nav'>
+	<span class='fillSpace'></span>
+	<ul class='navbar-nav nav-right'>
 		<a class='nav-link' *ngIf='!_authService.loggedIn()' Link='/login' routerLinkActive='active'>Login/SignUp</a>
-		<a class='nav-link' style='cursor:pointer' *ngIf='_authService.loggedIn()' (click)='_authService.logoutUser()'>Logout</a>
+		<a class='nav-link'  style='cursor:pointer' *ngIf='_authService.loggedIn()' (click)='_authService.logoutUser()'>Logout</a>
 	</ul>
 </mat-toolbar>
 
-<br/>
-<br/>
 
 <router-outlet></router-outlet>

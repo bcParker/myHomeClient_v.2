@@ -1,21 +1,30 @@
-<!-- <div class="grid-container">
-  <mat-grid-list cols="2" rowHeight="2:1">
-    <mat-grid-tile >
+<div class="grid-container">
+
+  <mat-grid-list cols="2" rowHeight="60vh">
+
+    <mat-grid-tile>
+      <app-stocks-table-test></app-stocks-table-test>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
       <app-weather-card></app-weather-card>
     </mat-grid-tile>
+  </mat-grid-list>
+
+
+
+  <mat-grid-list cols="2" rowHeight="27vh">
+
     <mat-grid-tile>
       <app-clock-card></app-clock-card>
     </mat-grid-tile>
+
     <mat-grid-tile>
-      <app-profile-card></app-profile-card>
+        <app-profile-card></app-profile-card>
     </mat-grid-tile>
+
   </mat-grid-list>
-</div> -->
-<section class="cards">
-<app-stocks-table-test></app-stocks-table-test>
-<app-weather-card></app-weather-card>
-</section>
 
 
-
-<!-- *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows" -->
+</div>
+<!-- <app-stocks-table-test></app-stocks-table-test> -->

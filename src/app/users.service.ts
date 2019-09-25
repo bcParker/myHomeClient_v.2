@@ -4,33 +4,28 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 //import { catchError, map, tap } from 'rxjs/operators';
 import { Users } from './users';
 import { APIURL } from '../environments/environment.prod';
-
-
-
+import { LoginComponent } from './login/login.component';
 @Injectable({
-  providedIn: 'root'
+ providedIn: 'root'
 })
 export class UsersService {
-
-  userUrl: string = `${APIURL}/user/1`;
-  updateUrl: string = `${APIURL}/user1`;
-
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-      //'Authorization': localhost.getItem('token')
-    })
-  }
-
-  constructor(
-    private http: HttpClient,
-  ) { }
-
-  getUsers(): Observable<Users>{
-    return this.http.get<Users>(this.userUrl);
-  }
-
-  updateUser(users: Users): Observable<any> {
-    return this.http.put(this.updateUrl, users, this.httpOptions)
-  }
+ userdata: Users = {email: '', password: '', name: '', avatar: '', id: 1};
+ sessionToken: string = localStorage.getItem('token');
+ private userUrl: string = `${APIURL}/user/${this.userdata.email}`;
+ private updateUrl: string = `${APIURL}/user/${this.userdata.email}`;
+ httpOptions = {
+   headers: new HttpHeaders({
+     'Content-Type': 'application/json',
+     'Authorization': this.sessionToken,
+   })
+ }
+ constructor(
+   private http: HttpClient,
+ ) { }
+ getUsers(): Observable<Users>{
+   return this.http.get<Users>(this.userUrl, this.httpOptions);
+ }
+ updateUser(users: Users): Observable<any> {
+   return this.http.put(this.updateUrl, users, this.httpOptions);
+ }
 }

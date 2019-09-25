@@ -1,11 +1,17 @@
 .card {
-		position: relative;
+		position: absolute;
 		top: 15px;
 		left: 15px;
 		right: 15px;
 		bottom: 15px;
-		width: 50%;
+		width: 90%;
+		height: 50vh;
 	}
+
+#header {
+	/* height: 10px; */
+	position: absolute;
+}
   
 .more-button {
 		position: absolute;
@@ -17,6 +23,8 @@
 		text-align: center;
 }
 .my-table {
+	overflow-y: auto; 
+		height: 35vh;
 		width: 98%;
 }
 .addStock {

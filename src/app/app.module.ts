@@ -15,7 +15,6 @@ import {
 
 import { FormsModule } from '@angular/forms';
 import { LayoutModule } from '@angular/cdk/layout';
-import { ProfileCardComponent } from './profile-card/profile-card.component';
 import { WeatherCardComponent } from './weather-card/weather-card.component';
 import { ClockCardComponent } from './clock-card/clock-card.component';
 
@@ -28,6 +27,7 @@ import { DialogBoxComponent } from './dialog-box/dialog-box.component';
 import { UsersService } from './users.service';
 import { WeatherService } from './weather.service';
 import { AuthService } from './auth.service';
+import { ProfileCardComponent } from './profile-card/profile-card.component';
 import { ProfileModalComponent } from './profile-modal/profile-modal.component';
 
 
@@ -41,7 +41,8 @@ import { ProfileModalComponent } from './profile-modal/profile-modal.component';
     LoginComponent,
     DialogBoxComponent,
     ProfileModalComponent,
-    StocksTableTestComponent
+    StocksTableTestComponent,
+    ProfileCardComponent
   ],
 
   imports: [
@@ -70,7 +71,8 @@ import { ProfileModalComponent } from './profile-modal/profile-modal.component';
   exports: [
   ],
   entryComponents: [
-    DialogBoxComponent, ProfileModalComponent
+    DialogBoxComponent, 
+    ProfileModalComponent
   ],
   providers: [
     WeatherService, 

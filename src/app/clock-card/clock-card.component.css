@@ -1,14 +1,14 @@
 .grid-container {
-	margin: 20px;
+	margin: 10px;
 }
 .dashboard-card {
-		position: absolute;
-		top: 15px;
-		left: 15px;
-		right: 15px;
-bottom: 15px;
-width: auto;
-height: 50%;
+	position: absolute;
+	top: 5px;
+	left: 15px;
+	right: 15px;
+	bottom: 15px;
+	width: auto;
+	height: 21vh;
 }
 .more-button {
 	position: absolute;
@@ -23,17 +23,13 @@ height: 50%;
 	left: 0px;
 }
 .analog{
-	flex: 0 0   10%;
+	flex: 0 0   5%;
 }
 .date {
 	flex: 1;
 }
-#profile-pic{
-	border-radius: 50%;
-}
-#firstStock {
-	display: flex;
-}
-h3 {
-	margin-right: auto;
+
+#outatime {
+	margin-right: 15%;
+	margin-top: 10px;
 }
