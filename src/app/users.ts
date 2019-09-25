@@ -3,4 +3,5 @@ export interface Users {
     password: string;
     name: string;
     avatar: string;
+    id: number;
 }

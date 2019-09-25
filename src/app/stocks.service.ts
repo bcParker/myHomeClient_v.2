@@ -12,8 +12,8 @@ export class StocksService {
   ) { }
   getLiveStocks(): Observable<SelectedStocks[]> {
     const name = ['fb']
-    const iexURL: string = `https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&apikey=xxx&symbols=${name}`
-    // const iexURL: string = `https://cloud.iexapis.com/stable/tops?token=pk_adcf19aa1218442696e130b258bc9bfb&symbols=${name.join(',')}`
+    // const iexURL: string = `https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&apikey=xxx&symbols=${name}`
+    const iexURL: string = `https://cloud.iexapis.com/stable/tops?token=pk_adcf19aa1218442696e130b258bc9bfb&symbols=fb}`
     return this.http.get<SelectedStocks[]>(iexURL)
   }
 }

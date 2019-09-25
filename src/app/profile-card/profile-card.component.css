@@ -1,0 +1,39 @@
+.grid-container {
+    margin: 20px;
+  }
+  .dashboard-card {
+    position: absolute;
+    top: 5px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    width: auto;
+    height: 21vh;
+  }
+  .more-button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+  }
+  .dashboard-card-content {
+    text-align: center;
+    display: flex;
+  }
+  .titlename{
+    left: 0px;
+  }
+  .pic-div{
+    flex: 0 0   10%;
+ }
+  .other-div {
+    flex: 1;
+  }
+  #profile-pic{
+    border-radius: 50%;
+  }
+  #firstStock {
+    display: flex;
+  }
+  h3 {
+    margin-right: auto;
+  }

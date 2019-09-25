@@ -1,4 +1,4 @@
-/* .grid-container {
+.grid-container {
   margin: 20px;
 }
 
@@ -18,9 +18,13 @@
 
 .dashboard-card-content {
   text-align: center;
-} */
+}
   
 /* .cards {
   display: flex;
   justify-content: space-between;
+} */
+
+/* #stocks {
+  float: right;
 } */
