@@ -33,9 +33,11 @@
 		</mat-form-field>
 		<button mat-raised-button class='button' (click)='getWeather()'>Search</button>
 		<br/>
-		<button *ngIf='!dataSource[0].city' mat-raised-button class='button' (click)='saveCity()'>Save</button>
+		<button  mat-raised-button class='button' (click)='saveCity()'>Save</button>
 		<button *ngIf='dataSource[0].city' mat-raised-button class='button' (click)='setCity()'>Update</button>
 
 		<!-- <button mat-raised-button></button> -->
 		<button mat-raised-button class='button' (click)='deleteCity()'>Delete</button>
 	</mat-card>
+
+<!-- *ngIf='!dataSource[0].city' -->
